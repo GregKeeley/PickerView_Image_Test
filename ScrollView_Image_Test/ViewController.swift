@@ -23,9 +23,17 @@ class ViewController: UIViewController {
 }
 
 extension ViewController: UIPickerViewDelegate {
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        let item = collection[row]
-        return ("\(item.description)")
+//    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+//        let item = collection[row]
+//        return ("\(item.description)")
+//    }
+    
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        let myView = UIView(frame: CGRect(x: 0, y: 0, width: pickerView.bounds.width / 2, height: pickerView.bounds.height / 2))
+        var myImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 220, height: 61))
+        myImageView = UIImageView(image: UIImage(systemName: "heart"))
+        myView.addSubview(myImageView)
+        return myView
     }
 }
 extension ViewController: UIPickerViewDataSource {
